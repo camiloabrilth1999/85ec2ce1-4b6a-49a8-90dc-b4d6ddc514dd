@@ -1,3 +1,0 @@
-class GitEventsController < ApplicationController
-  
-end
