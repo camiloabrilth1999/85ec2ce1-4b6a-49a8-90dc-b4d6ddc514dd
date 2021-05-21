@@ -182,6 +182,6 @@ RSpec.describe "ActorsControllerSpec", :type => :request do
     resp.each do |i|
       i.deep_stringify_keys!
     end
-    expect(JSON.parse(response.body)).to eq resp
+    expect(JSON.parse(response.body)).to eq resp.sort_by { |element| element["id"]}
   end
 end

@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :events
+  resources :events, defaults: {format: 'json'}
+  get 'events/actors/:id' => 'events#find_events_actor', defaults: {format: 'json'}
+
+  put '/actors' => 'actors#update', defaults: {format: 'json'}
+  get '/actors' => 'actors#index', defaults: {format: 'json'}
+
+  delete '/erase' => 'resources#delete', defaults: {format: 'json'}
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
